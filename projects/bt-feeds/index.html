@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <title>TED Feed - Peter Lin</title>
+    <link rel="stylesheet" type="text/css" href="styles/reveal.css">
+    <link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src='http://code.jquery.com/jquery-2.0.0.min.js'></script>
+    <script src="javascript/underscore.min.js"></script>
+    <script src="javascript/backbone.min.js"></script>
+    <script src="javascript/jquery.isotope.min.js"></script>
+    <script src="javascript/jquery.imagesloaded.min.js"></script>
+    <script src="javascript/jquery.reveal.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="javascript/feedViewer.js"></script>
+    <script>
+    google.load("feeds", "1");
+    $(function(){
+      var videoTemplate = _.template($("#video-template").html());
+      feedReader(
+        "http://feeds.feedburner.com/tedtalks_video", 
+        150,
+        $("#ted-feed"),
+        $("#feed-control"),
+        _.template($('#ted-entry-template').html()),
+        {
+          entryRenderCallback: function(entryView) {
+            entryView.$el.find(".clickable").off();
+            entryView.$el.find(".clickable").on('click', function(event){
+              event.preventDefault();
+              $("#ted-video").html(videoTemplate({
+                url: $(this).attr("data-video-url"),
+                type: $(this).attr("data-video-type")
+              }));
+              $("#ted-video").reveal();
+              $("#ted-video").on("reveal:close", function(){
+                $("#ted-video").html("");
+              });
+              $("#ted-video-div").on("loadedmetadata", function(){
+                $("#ted-video-div").show();
+                $(".ted-video-loading").remove();
+                if (!entryView.model.get('isRead')) { entryView.model.read(); }
+              });  
+            });
+          }
+        }
+      );
+    });
+     
+    </script>
+    <script type="text/template" id="ted-entry-template">
+    <div class='padding2'>
+      <div class='entry-inner top'>
+        <div class='clickable' data-link='<%= link %>' 
+          data-video-url='<%= mediaGroups[0].contents[0].url %>'>
+          <a href='#'>
+            <img class='ted-entry-img' 
+              src='<%= mediaGroups[0].contents[0].thumbnails[0].url %>'>
+            <div class='entry-title'><%= title %></div>
+          </a>
+        </div>
+        <div class='entry-inner bottom'>
+          <small>
+            <a href="#" class='entry-bookmark'>
+            <% if (bookmarked) { %>
+              <i class='icon-bookmark'></i> Bookmarked
+            <% } else { %>
+              <i class='icon-bookmark-empty'></i> Bookmark
+            <% } %>
+            </a>
+            | 
+            <a href='#' class='entry-read'>
+            <% if (isRead) { %>
+              <i class='icon-eye-close'></i> Mark Unwatched
+            <% } else { %>
+              <i class='icon-eye-open'></i> Mark Watched
+            <% } %>
+            </a>
+            <div style='text-align: right;'>
+              Published: 
+              <span class='publishedDate'><%= publishedDate %></span>
+            </div>
+          </small>
+          <div>
+            <%= content %>
+          </div>
+        </div>
+      </div>
+    </div>
+    </script>
+    <script type="text/template" id='video-template'>
+      <div class='ted-video-loading'>
+        <br>
+        <br>
+        <i class="icon-spinner icon-spin icon-4x"></i>
+        <br>
+        <br>
+        loading...
+        <br>
+        <br>
+      </div>
+      <video controls autoplay id='ted-video-div'>
+        <source src="<%= url %>" type="<%= type %>">
+      Your browser does not support the video tag.
+      </video>
+    </script>
+    <script type="text/template" id='feed-loading-template'>
+      <div style='margin-top: 25%; text-align: center;'>
+        <i class="icon-spinner icon-spin icon-4x"></i>
+        <br>
+        <br>
+        loading <%= url %>...
+      </div>
+    </script>
+    <script type="text/template" id='feed-error-template'>
+      <div style='margin-top: 25%; text-align: center;'>
+        <i class="icon-exclamation icon-4x"></i>
+        <br>
+        <br>
+        error #<%= code %>: <%= message %>
+      </div>
+    </script>
+  </head>
+  <body>
+    <div id='ted-video' class='reveal-modal'>
+    </div>
+    <div id='feed-control'>
+      Filter:
+        <label>
+          <input type="radio" class="feed-control-filter" 
+            name="feed-control-filter" value=".read"> Watched
+        </label>
+        <label>
+          <input type="radio" class="feed-control-filter" 
+            name="feed-control-filter" value=".unread"> Unwatched
+        </label>
+        <label>
+          <input type="radio" class="feed-control-filter" 
+            name="feed-control-filter" value=".bookmarked"> Bookmarked
+        </label>
+        <label>
+          <input type="radio" class="feed-control-filter" 
+            name="feed-control-filter" value=".unbookmarked"> Unbookmarked
+        </label>
+        <label>
+          <input type="radio" class="feed-control-filter" 
+            name="feed-control-filter" value="" checked> All
+        </label>
+      <br>
+      Sort:
+        <label>
+          <input type="radio" class="feed-control-sort" 
+            name="feed-control-sort" data-sortBy="publishDate" 
+            data-sortAscending="false"> Published (Oldest First)
+        </label>
+        <label>
+          <input type="radio" class="feed-control-sort" 
+            name="feed-control-sort" data-sortBy="publishDate" 
+            data-sortAscending="true" checked> Published (Newest First)
+        </label>
+      <br>
+      <!-- <button class='feed-control-reload'>reload</button> -->
+    </div>
+    <div id="ted-feed">
+    </div>
+  </body>
+</html>

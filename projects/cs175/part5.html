@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CS 175</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div id="header">
+<div id="logo">
+<h1>CS 175: Final Project</h1>
+<h2>Peter Lin</h2>
+</div>
+<div id="menu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="part2.html">Units</a></li>
+<li><a href="part3.html">Game Play</a></li>
+<li><a href="part4.html">Animation</a></li>
+<li><a href="part5.html">Features</a></li>
+</ul>
+</div>
+</div>
+
+<div id="content">
+<div id="main">
+
+<h1>Features</h1>
+<h3>Sound Effects and Background Music</h3>
+
+There are various sound effects and background music in the game. There are sound effects for firing the laser and enemy unit
+explosions. The sound/music files are .wav format and are played using the PlaySound function, and as the PlaySound function
+only allows one audio to be playing at a time, I was not able to have background music and laser sounds at the same time.
+
+<br /><br />
+PlaySound function http://msdn.microsoft.com/en-us/library/dd743680(VS.85).aspx<br />
+Explosion sound effect from http://www.mediacollege.com/downloads/sound-effects/explosion/ <br />
+Victory sound effect from http://www.allmusiclibrary.com/free_sound_effects.php<br />
+All other sound effects and music were from Star Wars Movies
+<h3>Multiple Stages</h3>
+There are 6 stages in total. All stages have 4 difficulty levels.<br /><br />
+Stage 1: 3 Tri-Fighters...<br />
+<img src="51.png" width=653 height=350/><br />
+Stage 2: 1 YT1300 and 4 Jedi Fighters...<br />
+<img src="52.png" width=653 height=350/><br />
+Stage 3: 3 Tie-Fighters...<br />
+<img src="53.png" width=653 height=350/><br />
+Stage 4: 18 stronger Jedi Fighters...<br />
+<img src="54.png" width=653 height=350/><br />
+Stage 5: 6 Tri-Fighters and 4 Tie-Fighters...<br />
+<img src="55.png" width=653 height=350/><br />
+Final Stage: Death Star...<br />
+<img src="56.png" width=653 height=350/><br />
+<h3>Explosion Effects</h3>
+A sort of mock explosion effect is implemented. Whenever an enemy laser or friendly laser hits a target, there will be 
+a small explosion in the color of the laser to indicate a hit.
+<br /><br />
+Green laser hits the target here...<br />
+<img src="57.png" width=653 height=350/><br />
+Enemy unit is dead, so there's one big explosion...<br />
+<img src="58.png" width=653 height=350/><br />
+Followed by serveral smaller explosions...<br />
+<img src="591.png" width=653 height=350/><br />
+Landspeeder is hit by enemy laser, see the red explosion on the landspeeder...<br />
+<img src="592.png" width=653 height=350/><br />
+The red explosion expanding, and the defeated enemy unit slowly descending into the terrain in the distance...<br />
+<img src="593.png" width=653 height=350/><br />
+</div>
+</div>
+
+<div id="footer">
+<div id="copyright">
+&copy; 2010 Harvard University. This site uses an edited <a href="http://www.free-css-templates.com">Free CSS Template</a>.
+</div> 
+</div>
+
+</body>
+</html>

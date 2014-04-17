@@ -1,0 +1,87 @@
+.feed-entry {
+  float: left;
+  display: inline;
+  width: 32%;
+}
+
+.ted-entry-img {
+  width: 100%;
+  height: auto;
+}
+
+#ted-feed {
+  padding-left: 2%;
+}
+
+#ted-video-div {
+  display: none;
+}
+
+#feed-control {
+  color: white;
+}
+
+body {
+  background: black;
+  color: gray;
+  font-family: Palatino, Georgia, serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.read {
+  opacity: 0.6 !important;
+}
+
+.entry-title {
+  position: absolute; 
+  left: 1;
+  right: 1;
+  bottom: 1;
+  padding: 3px 5px 3px 5px;
+  color: white;
+  background: #333;
+  background: rgba(0,0,0,0.75);
+}
+
+.entry-inner {
+  padding: 1px; 
+  background: white;
+}
+
+.bookmarked {
+
+}
+
+.entry-inner.top {
+  clear: both;
+}
+
+.entry-inner.bottom {
+  padding: 2px;
+}
+
+.clickable {
+  position: relative; 
+  padding: 1px;
+}
+
+.padding2 {
+  padding: 2px;
+}
+
+/* override reveal modal */
+
+.reveal-modal {
+  color: white;
+  top: 20%;
+  text-align: center;
+  background: black;
+  padding: 5px 15px 9px;
+}
+
+.reveal-modal-bg { 
+  background: rgba(0,0,0,.5); 
+}

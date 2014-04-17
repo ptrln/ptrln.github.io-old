@@ -1,0 +1,131 @@
+body {
+	background: #fff;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+#header { 
+	position: relative;
+	margin-left: auto; 
+	margin-right: auto;
+	padding: 0px;
+	border: 0px;
+	
+	width: 900px;
+	height:111px;
+	
+	background: url(images/hd_logo.jpg) no-repeat;  
+}
+
+#logo {
+	padding: 35px 0px 0px 110px;
+}
+
+#logo h1 {
+	color: #9B3535;
+	font-size: 28px;
+	margin: 0px;
+}
+
+#logo h2 {
+	color: #000;
+	font-size: 18px;
+	margin: 0px;	
+}
+
+#logo a {
+	color: #fff; 
+	text-decoration: none;
+}
+
+#logo a:hover {
+	color: #fff; 
+	text-decoration: none;
+}
+
+#menu {
+	position: absolute; 
+	top: 40px;
+	left: 410px;
+}
+
+#menu ul {
+  margin: 0px;
+  padding: 5px 0px 0px 20px; 
+  list-style-type: none;
+}
+
+#menu ul li {
+  display: inline;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#menu ul li a {
+  padding: 0px 15px 0px 0px;
+  text-decoration: none;
+  color: #fff;
+}
+
+#menu ul li a:hover {
+  text-decoration: none;
+  color: #c8c8c8;
+}
+
+#content {
+	margin-left: auto; 
+	margin-right: auto;
+	padding: 0px;
+	border: 0px;
+	
+	width: 900px;
+	min-height: 800 px;
+	
+	background: url(images/bg.jpg) repeat-y; 
+}
+
+#main {
+	margin: 0px;
+	padding: 15px 80px 15px 80px;
+	text-align: justify;
+}
+
+#main a {
+	color: #000;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+#main a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+#footer { 
+	margin-left: auto; 
+	margin-right: auto; 
+	padding: 0px;
+	border: 0px;
+	
+	width: 900px;
+	height:100px; 
+	
+	background: url(images/ft.jpg) no-repeat; 
+	
+	color:#E98383;
+}
+
+#copyright {
+	margin: 0px;
+	padding: 30px 60px 0px 60px;
+	text-align: center; 
+}
+
+#copyright a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#copyright a:hover {
+	text-decoration: underline;
+}
